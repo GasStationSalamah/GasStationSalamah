@@ -451,9 +451,9 @@ var BoxDetailsComponent = /** @class */ (function () {
             if (res.success) {
                 _this.isLoadingResults = false;
                 var data = [];
-                var balance = 0;
-                for (var index = res.data.length - 1; index > 0; index--) {
-                    var item = res.data[index];
+                var balance = res.data.balance;
+                for (var index = res.data.allSafeTransactions.length - 1; index >= 0; index--) {
+                    var item = res.data.allSafeTransactions[index];
                     if (item.inOutType === "out")
                         balance -= item.value;
                     else
